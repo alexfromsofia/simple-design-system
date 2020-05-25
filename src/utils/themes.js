@@ -1,4 +1,4 @@
-import { blue, neutral } from "./colors";
+import { blue, neutral, yellow, red, green } from "./colors";
 import { primaryFont } from "./typography";
 
 const borderRadius = "30px";
@@ -38,4 +38,25 @@ export const defaultTheme = {
   primaryButtonBorderRadius: borderRadius,
   primaryButtonBoxShadow: boxShadow,
   spacing,
+  status: {
+    warningColor: yellow[100],
+    warningColorHover: yellow[200],
+    warningColorActive: yellow[300],
+    errorColor: red[100],
+    errorColorHover: red[200],
+    errorColorActive: red[300],
+    successColor: green[100],
+    successColorHover: green[200],
+    successColorActive: green[300],
+  },
+};
+
+export const darkTheme = {
+  ...defaultTheme,
+  primaryColor: neutral[100],
+  primaryColorHover: neutral[200],
+  primaryColorActive: blue[100],
+  textColorOnPrimary: blue[300],
+  textColor: blue[300],
+  textColorInverted: neutral[100],
 };
