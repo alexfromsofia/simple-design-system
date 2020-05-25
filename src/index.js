@@ -1,48 +1,39 @@
 import React, { useState } from "react";
 import ReactDOM from "react-dom";
-import { ThemeProvider } from "styled-components";
+import styled, { ThemeProvider } from "styled-components";
 
-// import {
-//   PrimaryButton,
-//   SecondaryButton,
-//   TertiaryButton,
-// } from "./components/Buttons";
 import { GlobalStyle, darkTheme, defaultTheme } from "./utils";
 import { SignUpModal } from "./components/Modal";
+import { PrimaryButton } from "./components";
+
+const ContentWrapper = styled.div`
+  width: 100vw;
+  height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background: ${({ theme }) => theme.primaryBackgroundColor};
+`;
+
+const ButtonWrapper = styled(ContentWrapper)`
+  height: 10vh;
+`;
 
 const App = () => {
   const [useDarkTheme, setUseDarkTheme] = useState(false);
+  const theme = useDarkTheme ? darkTheme : defaultTheme;
 
   return (
-    <ThemeProvider theme={useDarkTheme ? darkTheme : defaultTheme}>
-      <button
-        onClick={() => setUseDarkTheme(!useDarkTheme)}
-        style={{
-          margin: "0 16px 24px",
-          padding: "8px",
-          background: "none",
-          cursor: "pointer",
-          border: "2px solid #000",
-          marginTop: "60px",
-        }}
-      >
-        Switch Theme
-      </button>
-      <div
-        style={{
-          background: useDarkTheme
-            ? defaultTheme.primaryColor
-            : darkTheme.primaryColor,
-          width: "100vw",
-          height: "90vh",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-around",
-        }}
-      >
+    <ThemeProvider theme={theme}>
+      <ButtonWrapper>
+        <PrimaryButton onClick={() => setUseDarkTheme(!useDarkTheme)}>
+          Switch Theme
+        </PrimaryButton>
+      </ButtonWrapper>
+      <ContentWrapper>
         <SignUpModal />
         <GlobalStyle />
-      </div>
+      </ContentWrapper>
     </ThemeProvider>
   );
 };

@@ -39,6 +39,10 @@ const CloseModalButton = styled.button`
   width: 24px;
   height: 24px;
   padding: 0;
+
+  svg {
+    fill: ${({ theme }) => theme.iconColor};
+  }
 `;
 
 export const SignUpModal = () => {

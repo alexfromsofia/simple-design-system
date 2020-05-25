@@ -26,13 +26,16 @@ const spacing = {
 };
 
 export const defaultTheme = {
+  isDark: false,
   primaryColor: blue[300],
+  primaryBackgroundColor: neutral[100],
   primaryColorHover: blue[200],
   primaryColorActive: blue[100],
   textColorOnPrimary: neutral[100],
   textColor: neutral[600],
   textColorInverted: neutral[100],
   textOnDisabled: neutral[300],
+  iconColor: neutral[600],
   disabled: neutral[400],
   primaryFont,
   primaryButtonBorderRadius: borderRadius,
@@ -55,12 +58,15 @@ export const defaultTheme = {
 
 export const darkTheme = {
   ...defaultTheme,
+  isDark: true,
   primaryColor: neutral[100],
+  primaryBackgroundColor: blue[300],
   primaryColorHover: neutral[200],
   primaryColorActive: blue[100],
   textColorOnPrimary: blue[300],
   textColor: blue[300],
+  iconColor: neutral[100],
   textColorInverted: neutral[100],
   formElementBackground: blue[100],
-  textOnFormElement: neutral[600],
+  textOnFormElement: neutral[100],
 };
