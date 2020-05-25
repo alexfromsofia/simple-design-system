@@ -17,21 +17,27 @@ const ContentWrapper = styled.div`
 
 const ButtonWrapper = styled(ContentWrapper)`
   height: 10vh;
+  z-index: 10;
+  position: relative;
 `;
 
 const App = () => {
-  const [useDarkTheme, setUseDarkTheme] = useState(false);
-  const theme = useDarkTheme ? darkTheme : defaultTheme;
+  const [isDarkTheme, setIsDarkTheme] = useState(false);
+  const [showModal, setShowModal] = useState(false);
+  const theme = isDarkTheme ? darkTheme : defaultTheme;
 
   return (
     <ThemeProvider theme={theme}>
       <ButtonWrapper>
-        <PrimaryButton onClick={() => setUseDarkTheme(!useDarkTheme)}>
+        <PrimaryButton onClick={() => setIsDarkTheme(!isDarkTheme)}>
           Switch Theme
+        </PrimaryButton>
+        <PrimaryButton onClick={() => setShowModal(!showModal)}>
+          Toggle Modal
         </PrimaryButton>
       </ButtonWrapper>
       <ContentWrapper>
-        <SignUpModal />
+        <SignUpModal showModal={showModal} setShowModal={setShowModal} />
         <GlobalStyle />
       </ContentWrapper>
     </ThemeProvider>
