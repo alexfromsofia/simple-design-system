@@ -37,6 +37,8 @@ export const defaultTheme = {
   primaryFont,
   primaryButtonBorderRadius: borderRadius,
   primaryButtonBoxShadow: boxShadow,
+  formElementBackground: neutral[100],
+  textOnFormElement: neutral[600],
   spacing,
   status: {
     warningColor: yellow[100],
@@ -59,4 +61,6 @@ export const darkTheme = {
   textColorOnPrimary: blue[300],
   textColor: blue[300],
   textColorInverted: neutral[100],
+  formElementBackground: blue[100],
+  textOnFormElement: neutral[600],
 };
